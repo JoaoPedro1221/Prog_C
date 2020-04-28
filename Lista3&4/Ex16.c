@@ -1,4 +1,4 @@
-// Fa�a um programa que receba dois n�meros inteiros N1 e N2, calcule e imprima a tabuada (de 0 at� 10) de todos os n�meros entre N1 e N2.
+// Faça um programa que receba dois n�meros inteiros N1 e N2, calcule e imprima a tabuada (de 0 at� 10) de todos os n�meros entre N1 e N2.
 
 #include <stdio.h>
 
