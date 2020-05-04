@@ -44,11 +44,11 @@ scanf("%d",&op);
         printf("   PERIMETRO:  %d\n\n", perimetro);
 
         //imprimir moldura SUPERIOR
-        desenho=-4;
+        desenho=-2;
         printf("   ");
         while (desenho < lado)
             {
-            printf( "_" );
+            printf( "__" );
             desenho += 1;
             }
             printf("\n");
@@ -58,7 +58,7 @@ scanf("%d",&op);
          linha=0;
          while (linha < lado)
             {
-            printf( " " );
+            printf( "  " );
             linha += 1;
             }
          printf("  |\n");
@@ -70,7 +70,7 @@ scanf("%d",&op);
          printf("  |  ");
          while (linha < lado)
             {
-            printf( "@" );
+            printf( "@ " );
             linha += 1;
             }
          printf("  |\n");
@@ -78,10 +78,10 @@ scanf("%d",&op);
 
         //imprimir moldura lateral desenho linha em branco FINAL e MOLDURA INFERIOR
         printf("  |");
-         linha=-4;
+         linha=-2;
          while (linha < lado)
             {
-            printf( "_" );
+            printf( "__" );
             linha += 1;
             }
          printf("|\n\n");
@@ -111,11 +111,11 @@ scanf("%d",&op);
         printf("   PERIMETRO:  %d\n\n", perimetro);
 
         //imprimir moldura SUPERIOR
-        desenho=-4;
+        desenho=-2;
         printf("   ");
         while (desenho < ladomaior)
             {
-            printf( "_" );
+            printf( "__" );
             desenho += 1;
             }
             printf("\n");
@@ -125,7 +125,7 @@ scanf("%d",&op);
          linha=0;
          while (linha < ladomaior)
             {
-            printf( " " );
+            printf( "  " );
             linha += 1;
             }
          printf("  |\n");
@@ -137,7 +137,7 @@ scanf("%d",&op);
          printf("  |  ");
          while (linha < ladomaior)
             {
-            printf( "@" );
+            printf( "@ " );
             linha += 1;
             }
          printf("  |\n");
@@ -145,10 +145,10 @@ scanf("%d",&op);
 
         //imprimir moldura lateral desenho linha em branco FINAL e MOLDURA INFERIOR
         printf("  |");
-         linha=-4;
+         linha=-2;
          while (linha < ladomaior)
             {
-            printf( "_" );
+            printf( "__" );
             linha += 1;
             }
          printf("|\n\n");
@@ -229,25 +229,27 @@ scanf("%d",&op);
         teste = lado;
         printf("\n   AREA:  %.2f\n", area);
         printf("   PERIMETRO:  %d\n\n", perimetro);
-
+        printf("  |\\\n");
+        printf("  | \\\n");
         //imprimir triangulo e suas molduras
         for (j=0; j<=lado; j++)
         {
-        printf("  |");
+        printf("  | ");
         teste -= 1;
         for (i=0; i< j; i++)
         {
         printf ("@");
         }
-        printf("\\\n");
+        printf(" \\\n");
         }
         linha = 0;
-        printf("   %c", 238);
+        printf("  |___");
         while (linha < lado)
             {
-            printf("%c", 238);
+            printf("_");
             linha += 1;
             }
+        printf("\\");
         printf("\n");
         system("pause");
         return main();
