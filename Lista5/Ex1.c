@@ -3,6 +3,7 @@
 
 main ()
 {
+//INICIO MENU
 int op;
 {
 system("cls");
@@ -15,17 +16,17 @@ printf("##                                                ##\n");
 printf("##  1. Quadrado                                   ##\n");
 printf("##  2. Retangulo                                  ##\n");
 printf("##  3. Triangulo Equilatero                       ##\n");
-printf("##  4. Triangulo Retangulo                        ##\n");
-printf("##  5. Outra                                      ##\n");
+printf("##  4. Triangulo Retangulo (catetos iguais)       ##\n");
+printf("##  5. Paralelogramo                              ##\n");
 printf("##  6. Sair                                       ##\n");
 printf("##                                                ##\n");
 printf("####################################################\n");
 printf("####################################################\n\n");
 printf("Qual o numero correspondente a sua opcao?: \n");
 scanf("%d",&op);
-
+//FIM MENU
 }
-    // INICIO DA OPCAO DO QUADRADO ==========================================================
+    //INICIO OPCAO DO QUADRADO
     if (op==1)
     {
         system("cls");
@@ -89,9 +90,8 @@ scanf("%d",&op);
         system("pause");
         return main();
     }
-    // FIM DA OPCAO DO QUADRADO ==========================================================
-
-
+    //FIM OPCAO DO QUADRADO
+    //INICIO OPCAO RETANGULO
     if (op==2)
     {
         system("cls");
@@ -157,6 +157,8 @@ scanf("%d",&op);
         system("pause");
         return main();
     }
+    //FIM OPCAO RETANGULO
+    //INICIO OPCAO TRIANGULO EQUILATERO
     if (op==3)
     {
         system("cls");
@@ -208,18 +210,125 @@ scanf("%d",&op);
         system("pause");
         return main();
     }
+    //FIM OPCAO TRIANGULO EQUILATERO
+    //INICIO TRIANGULO RETANGULO
     if (op==4)
     {
-        printf("PROGRAMA AINDA EM CONSTRUCAO\n");
+        system("cls");
+        int lado, perimetro, i, j, x, z, teste, linha;
+        float area;
+        printf("====================================================\n");
+        printf(" TRIANGULO RETANGULO\n");
+        printf("====================================================\n\n");
+        printf("   Digite o lado do Triangulo Retangulo:  ");
+        scanf("%d",&lado);
+
+        //calculos necessarios
+        area = ((lado*2) / 2);
+        perimetro = (lado * 3);
+        teste = lado;
+        printf("\n   AREA:  %.2f\n", area);
+        printf("   PERIMETRO:  %d\n\n", perimetro);
+
+        //imprimir triangulo e suas molduras
+        for (j=0; j<=lado; j++)
+        {
+        printf("  |");
+        teste -= 1;
+        for (i=0; i< j; i++)
+        {
+        printf ("@");
+        }
+        printf("\\\n");
+        }
+        linha = 0;
+        printf("   %c", 238);
+        while (linha < lado)
+            {
+            printf("%c", 238);
+            linha += 1;
+            }
+        printf("\n");
         system("pause");
         return main();
     }
+    //FIM OPCAO TRIANGULO RETANGULO
+    //INCIO OPCAO PARALELOGRAMO
     if (op==5)
     {
-        printf("PROGRAMA AINDA EM CONSTRUCAO\n");
+      system("cls");
+        int lado, area, perimetro, i, z, mold, linha, desenho;
+        printf("====================================================\n");
+        printf(" PARALELOGRAMO\n");
+        printf("====================================================\n\n");
+        printf("   Digite o lado do paralelogramo:  ");
+        scanf("%d",&lado);
+
+        area = lado * lado;
+        perimetro = lado * 4;
+
+        printf("\n   AREA:  %d\n", area);
+        printf("   PERIMETRO:  %d\n\n", perimetro);
+
+        //imprimir moldura SUPERIOR
+        desenho=-4;
+        printf("  ");
+        while (desenho < lado)
+            {
+            printf( "_" );
+            desenho += 1;
+            }
+            printf("\n");
+
+        //imprimir moldura lateral desenho da linha em branco INICIO
+         printf(" \\  ");
+         linha=0;
+         while (linha < lado)
+            {
+            printf( " " );
+            linha += 1;
+            }
+         printf("  \\\n");
+
+        //imprimir paralelogramo e suas molduras
+        mold=0;
+        for (i=0; i<lado;i++)
+        {
+         linha=0;
+
+         for (z=0; z<mold; z++)
+         {
+             printf(" ");
+         }
+         mold +=1;
+         printf("  \\  ");
+         while (linha < lado)
+            {
+            printf( "@" );
+            linha += 1;
+            }
+         printf("  \\\n");
+        }
+
+        //imprimir moldura lateral desenho linha em branco FINAL e MOLDURA INFERIOR
+        for (z=0; z<mold; z++)
+         {
+             printf(" ");
+         }
+        printf("  \\");
+         linha=-4;
+         while (linha < lado)
+            {
+            printf( "_" );
+            linha += 1;
+            }
+         printf("\\\n\n");
+
+
         system("pause");
         return main();
     }
+    //FIM OPCAO PARALELOGRAMO
     if (op==6)
     {
         printf("Aperte -ENTER- para sair do Programa!\n");
