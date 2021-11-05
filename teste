@@ -1,0 +1,61 @@
+CREATE TABLE professores (
+	id serial PRIMARY KEY,
+	salario REAL NOT NULL,
+	cpf VARCHAR ( 11 ) UNIQUE NOT NULL,
+	nome VARCHAR ( 60 ) NOT NULL,
+	email VARCHAR ( 100 ) UNIQUE NOT NULL
+);
+
+CREATE TABLE alunos (
+	id serial PRIMARY KEY,
+	cpf VARCHAR ( 11 ) UNIQUE NOT NULL,
+	nome VARCHAR ( 60 ) NOT NULL,
+	email VARCHAR ( 100 ) UNIQUE NOT NULL,
+	matricula VARCHAR ( 10 ) NOT NULL
+);
+
+CREATE TABLE disciplinas (
+	id serial PRIMARY KEY,
+	codigo VARCHAR ( 20 ) UNIQUE NOT NULL,
+	nome VARCHAR ( 60 ) NOT NULL,
+	numero_creditos INT NOT null,
+	professor_id INT NOT null,
+	FOREIGN KEY (professor_id) REFERENCES professores (id)
+);
+
+CREATE TABLE provas (
+	id serial PRIMARY KEY,
+	numero VARCHAR ( 20 ) UNIQUE NOT NULL,
+	descricao VARCHAR ( 100 ) NOT NULL,
+	valor REAL NOT NULL,
+	disciplina_id INT,
+	FOREIGN KEY (disciplina_id) REFERENCES disciplinas (id)
+);
+
+CREATE TABLE notas (
+	id serial PRIMARY KEY,
+	nota REAL NOT NULL,
+	aluno_id INT,
+	prova_id INT,
+	FOREIGN KEY (aluno_id) REFERENCES alunos (id),
+	FOREIGN KEY (prova_id) REFERENCES provas (id)
+);
+
+
+CREATE TABLE turmas (
+	id serial PRIMARY KEY,
+	numero VARCHAR ( 20 ) NOT NULL,
+	sala VARCHAR ( 5 ) NOT NULL,
+	horario VARCHAR ( 10 ) NOT NULL,
+	professor_id INT NOT NULL,
+	FOREIGN KEY (professor_id) REFERENCES professores (id)
+);
+
+CREATE TABLE matriculas (
+	id serial PRIMARY KEY,
+	status BOOLEAN NOT NULL,
+	aluno_id INT NOT NULL,
+	turma_id INT NOT NULL,
+	FOREIGN KEY (aluno_id) REFERENCES alunos (id),
+	FOREIGN KEY (turma_id) REFERENCES turmas (id)
+);
